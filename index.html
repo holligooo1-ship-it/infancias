@@ -1,106 +1,532 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Construcción histórica de las infancias</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #fdf6f0; color: #333; }
-    header { background: #b56576; color: white; padding: 30px; text-align: center; }
-    nav { background: #6d597a; padding: 10px; text-align: center; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    section { max-width: 900px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    h2 { color: #b56576; }
-    .timeline-item { border-left: 4px solid #b56576; padding-left: 15px; margin: 20px 0; }
-    .integrante { display: flex; gap: 15px; margin-bottom: 15px; align-items: center; }
-    .integrante img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; background: #ddd; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Construcción histórica de las infancias</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f1ec;
+    color: #2c2c2c;
+    line-height: 1.6;
+  }
+
+  /* ---------- ENCABEZADO ---------- */
+  header {
+    background: linear-gradient(135deg, #6d597a 0%, #b56576 100%);
+    color: #fff;
+    padding: 50px 20px 40px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+  header p {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* ---------- MENÚ DE PESTAÑAS ---------- */
+  nav {
+    background: #3d3149;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  nav button {
+    background: none;
+    border: none;
+    color: #ddd;
+    padding: 16px 22px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.25s;
+    border-bottom: 3px solid transparent;
+  }
+  nav button:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  nav button.active {
+    color: #fff;
+    border-bottom: 3px solid #b56576;
+    background: rgba(181,101,118,0.15);
+  }
+
+  /* ---------- SECCIONES ---------- */
+  .tab-content { display: none; animation: fade 0.4s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 35px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+  }
+
+  h2 {
+    color: #6d597a;
+    font-size: 1.8rem;
+    margin-bottom: 18px;
+    border-left: 5px solid #b56576;
+    padding-left: 14px;
+  }
+
+  h3 {
+    color: #b56576;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    color: #6d597a;
+    font-size: 1.05rem;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+
+  p { margin-bottom: 12px; text-align: justify; }
+
+  /* ---------- INTEGRANTES ---------- */
+  .integrante {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #faf7f4;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    align-items: center;
+    border-left: 4px solid #b56576;
+    transition: transform 0.2s;
+  }
+  .integrante:hover { transform: translateX(4px); }
+  .integrante img {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #ddd;
+    flex-shrink: 0;
+    border: 3px solid #b56576;
+  }
+  .integrante .info strong { color: #3d3149; font-size: 1.1rem; }
+  .integrante .info .rol {
+    display: inline-block;
+    background: #6d597a;
+    color: #fff;
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin: 6px 0;
+  }
+  .integrante .info em { color: #555; font-size: 0.95rem; display: block; margin-top: 6px; }
+
+  /* ---------- LÍNEA DE TIEMPO ---------- */
+  .intro-timeline {
+    background: #f9f4ef;
+    padding: 22px;
+    border-left: 5px solid #6d597a;
+    border-radius: 10px;
+    margin-bottom: 35px;
+    font-style: italic;
+    color: #4a4a4a;
+  }
+
+  .timeline {
+    position: relative;
+    padding: 20px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(#b56576, #6d597a);
+    transform: translateX(-50%);
+    border-radius: 4px;
+  }
+
+  .evento {
+    position: relative;
+    width: 50%;
+    padding: 0 40px;
+    margin-bottom: 35px;
+  }
+  .evento:nth-child(odd) { left: 0; text-align: right; }
+  .evento:nth-child(even) { left: 50%; text-align: left; }
+
+  .evento::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 18px; height: 18px;
+    background: #b56576;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #b56576;
+  }
+  .evento:nth-child(odd)::after { right: -12px; }
+  .evento:nth-child(even)::after { left: -12px; }
+
+  .evento .contenido {
+    background: #fff;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .evento .contenido:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(181,101,118,0.25);
+  }
+
+  .evento .epoca {
+    display: inline-block;
+    background: #6d597a;
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+
+  .evento .emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+
+  /* Botón "Ver más" */
+  .btn-vermas {
+    background: #b56576;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-top: 12px;
+    transition: background 0.25s;
+  }
+  .btn-vermas:hover { background: #6d597a; }
+
+  .detalles {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, margin-top 0.3s;
+    margin-top: 0;
+  }
+  .detalles.abierto {
+    max-height: 800px;
+    margin-top: 14px;
+  }
+  .detalles p {
+    background: #f9f4ef;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  /* ---------- REFERENCIAS ---------- */
+  .referencias {
+    background: #f9f4ef;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #b56576;
+    margin-top: 40px;
+  }
+  .referencias h3 { color: #6d597a; margin-bottom: 16px; }
+  .referencias p {
+    padding-left: 30px;
+    text-indent: -30px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+  }
+
+  /* ---------- TEXTO EXTRA ---------- */
+  .bloque {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+  }
+  .bloque h3 { margin-bottom: 12px; }
+  .idea-clave {
+    background: linear-gradient(135deg, #b56576, #6d597a);
+    color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.05rem;
+    margin: 25px 0;
+    box-shadow: 0 6px 20px rgba(109,89,122,0.35);
+  }
+  .idea-clave strong { display: block; font-size: 0.9rem; letter-spacing: 1px; opacity: 0.85; margin-bottom: 8px; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 720px) {
+    header h1 { font-size: 1.5rem; }
+    .timeline::before { left: 20px; }
+    .evento { width: 100%; left: 0 !important; padding-left: 55px; padding-right: 10px; text-align: left !important; }
+    .evento::after { left: 11px !important; right: auto !important; }
+    .integrante { flex-direction: column; text-align: center; }
+    nav button { padding: 12px; font-size: 0.9rem; }
+  }
+
+  footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+    font-size: 0.85rem;
+    background: #efe9e3;
+    margin-top: 40px;
+  }
+</style>
 </head>
 <body>
 
 <header>
   <h1>Construcción histórica de las infancias</h1>
+  <p>Un recorrido por las transformaciones sociales, culturales, educativas y jurídicas en la manera de comprender a los niños y las niñas.</p>
 </header>
 
 <nav>
-  <a href="#inicio">Inicio</a>
-  <a href="#integrantes">Integrantes</a>
-  <a href="#linea">Línea de tiempo</a>
-  <a href="#referencias">Referencias</a>
+  <button class="tab-btn active" data-tab="inicio">🏠 Inicio</button>
+  <button class="tab-btn" data-tab="integrantes">👥 Integrantes</button>
+  <button class="tab-btn" data-tab="construccion">📜 Construcción histórica</button>
 </nav>
 
-<section id="inicio">
-  <h2>Presentación</h2>
-  <p>Esta página presenta el proceso de construcción histórica de las infancias y diferentes características que permiten reconocer cómo ha cambiado la manera de identificar a los niños y niñas a través del tiempo. Mediante las distintas pestañas se presentarán temas relacionados con las infancias, sus contextos, desafíos, realidades y las posibilidades de transformación. Esto se irá desarrollando de manera progresiva durante todo el curso.</p>
-</section>
+<!-- ============ PESTAÑA INICIO ============ -->
+<div id="inicio" class="tab-content active">
+  <section>
+    <div class="card">
+      <h2>Bienvenida</h2>
+      <p>Esta página web presenta el proceso de construcción histórica de las infancias y diferentes características que permiten reconocer cómo ha cambiado la manera de identificar a los niños y niñas a través del tiempo. Mediante las distintas pestañas se presentarán temas relacionados con las infancias, sus contextos, desafíos, realidades y las posibilidades de transformación. Esto se irá desarrollando de manera progresiva durante todo el curso.</p>
+    </div>
+  </section>
+</div>
 
-<section id="integrantes">
-  <h2>Integrantes del grupo</h2>
-  <div class="integrante"><img src="https://via.placeholder.com/80" alt="foto"><div><strong>[Nombre 1]</strong><br>Coordinadora general<br><em>[Descripción]</em></div></div>
-  <div class="integrante"><img src="https://via.placeholder.com/80" alt="foto"><div><strong>[Nombre 2]</strong><br>Investigadora<br><em>[Descripción]</em></div></div>
-  <div class="integrante"><img src="https://via.placeholder.com/80" alt="foto"><div><strong>[Nombre 3]</strong><br>Diseñadora de contenido<br><em>[Descripción]</em></div></div>
-  <div class="integrante"><img src="https://via.placeholder.com/80" alt="foto"><div><strong>[Nombre 4]</strong><br>Editora de textos<br><em>[Descripción]</em></div></div>
-  <div class="integrante"><img src="https://via.placeholder.com/80" alt="foto"><div><strong>[Nombre 5]</strong><br>Responsable de referencias<br><em>[Descripción]</em></div></div>
-</section>
+<!-- ============ PESTAÑA INTEGRANTES ============ -->
+<div id="integrantes" class="tab-content">
+  <section>
+    <div class="card">
+      <h2>Integrantes del grupo</h2>
 
-<section id="linea">
-  <h2>Línea de tiempo interactiva</h2>
+      <div class="integrante">
+        <img src="https://via.placeholder.com/90" alt="Foto integrante 1">
+        <div class="info">
+          <strong>[Nombre completo 1]</strong>
+          <span class="rol">Coordinadora general</span>
+          <em>[Breve descripción personal y académica]</em>
+        </div>
+      </div>
 
-  <div class="timeline-item">
-    <h3>🏛️ Edad Antigua (3000 a.C. – s. V d.C.)</h3>
-    <p><strong>Contexto social:</strong> Sociedades jerárquicas, autoridad familiar central.</p>
-    <p><strong>Contexto cultural:</strong> Religión y tradiciones guiaban la educación.</p>
-    <p><strong>Concepción de infancia:</strong> Vista desde las necesidades adultas; variaba según género, familia y condición social.</p>
-  </div>
+      <div class="integrante">
+        <img src="https://via.placeholder.com/90" alt="Foto integrante 2">
+        <div class="info">
+          <strong>[Nombre completo 2]</strong>
+          <span class="rol">Investigadora</span>
+          <em>[Breve descripción personal y académica]</em>
+        </div>
+      </div>
 
-  <div class="timeline-item">
-    <h3>⛪ Edad Media (s. V – XV)</h3>
-    <p><strong>Contexto social:</strong> Relaciones de dependencia e influencia de la Iglesia.</p>
-    <p><strong>Contexto cultural:</strong> Religión cristiana marcó valores y educación.</p>
-    <p><strong>Concepción de infancia:</strong> Participación temprana en tareas y oficios; no era reconocida como etapa universal.</p>
-  </div>
+      <div class="integrante">
+        <img src="https://via.placeholder.com/90" alt="Foto integrante 3">
+        <div class="info">
+          <strong>[Nombre completo 3]</strong>
+          <span class="rol">Diseñadora de contenido</span>
+          <em>[Breve descripción personal y académica]</em>
+        </div>
+      </div>
 
-  <div class="timeline-item">
-    <h3>📚 Edad Moderna (s. XV – XVIII)</h3>
-    <p><strong>Contexto social:</strong> Renacimiento, expansión de Estados, nuevas ideas.</p>
-    <p><strong>Contexto cultural:</strong> Humanismo y cultura escrita fortalecieron la reflexión educativa.</p>
-    <p><strong>Concepción de infancia:</strong> Se consolida como etapa que requiere formación y cuidado.</p>
-  </div>
+      <div class="integrante">
+        <img src="https://via.placeholder.com/90" alt="Foto integrante 4">
+        <div class="info">
+          <strong>[Nombre completo 4]</strong>
+          <span class="rol">Editora de textos</span>
+          <em>[Breve descripción personal y académica]</em>
+        </div>
+      </div>
 
-  <div class="timeline-item">
-    <h3>🏫 Hacia una concepción contemporánea (s. XIX – XXI)</h3>
-    <p><strong>Contexto social:</strong> Ampliación de la escolarización y debates sobre protección.</p>
-    <p><strong>Contexto cultural:</strong> Pedagogía y psicología valoraron desarrollo, juego y participación.</p>
-    <p><strong>Concepción de infancia:</strong> Comprensión plural: no existe una sola manera de vivir la infancia.</p>
-  </div>
+      <div class="integrante">
+        <img src="https://via.placeholder.com/90" alt="Foto integrante 5">
+        <div class="info">
+          <strong>[Nombre completo 5]</strong>
+          <span class="rol">Responsable de referencias</span>
+          <em>[Breve descripción personal y académica]</em>
+        </div>
+      </div>
 
-  <div class="timeline-item">
-    <h3>🧠 Autores y aportes</h3>
-    <ul>
-      <li><strong>María Montessori:</strong> autonomía y ambiente preparado.</li>
-      <li><strong>Jean Piaget:</strong> desarrollo cognitivo progresivo.</li>
-      <li><strong>Lev Vygotsky:</strong> interacción social y cultural.</li>
-    </ul>
-  </div>
+    </div>
+  </section>
+</div>
 
-  <div class="timeline-item">
-    <h3>⚖️ Hitos normativos</h3>
-    <p>Convención sobre los Derechos del Niño (1989): niños y niñas como sujetos de derechos.</p>
-  </div>
+<!-- ============ PESTAÑA CONSTRUCCIÓN HISTÓRICA ============ -->
+<div id="construccion" class="tab-content">
+  <section>
 
-  <div class="timeline-item">
-    <h3>🫶 Idea clave</h3>
-    <p>La infancia es una construcción social e histórica, diversa y atravesada por derechos, participación, protección, educación y dignidad.</p>
-  </div>
-</section>
+    <div class="card">
+      <h2>Línea del tiempo interactiva</h2>
+      <h3>Transformaciones sociales, culturales, educativas y jurídicas en la manera de comprender a los niños y las niñas</h3>
 
-<section id="referencias">
-  <h2>Referencias bibliográficas (APA)</h2>
-  <p>Ariès, P. (1987). <em>El niño y la vida familiar en el Antiguo Régimen</em>. Taurus.</p>
-  <p>Comenio, J. A. (1986). <em>Didáctica magna</em>. Porrúa.</p>
-  <p>Rousseau, J.-J. (2000). <em>Emilio o de la educación</em>. Alianza.</p>
-  <p>UNICEF. (1989). <em>Convención sobre los Derechos del Niño</em>.</p>
-</section>
+      <div class="intro-timeline">
+        Esta línea del tiempo presenta algunos cambios importantes en la manera en que las sociedades han comprendido a los niños, las niñas y la infancia. Se organiza cronológicamente en Edad Antigua, Edad Media y Edad Moderna, relacionando cada periodo con su contexto social y cultural, las concepciones de infancia, autores, aportes y transformaciones relevantes.
+      </div>
+
+      <div class="timeline">
+
+        <!-- 1. EDAD ANTIGUA -->
+        <div class="evento">
+          <div class="contenido">
+            <span class="epoca">3000 a. C. – siglo V d. C.</span>
+            <span class="emoji">🏛️</span>
+            <h3>1. Edad Antigua</h3>
+            <p><strong>Contexto social:</strong> Las sociedades antiguas estaban organizadas de manera jerárquica. La familia, la autoridad y las diferencias sociales tenían gran importancia. La vida de los niños dependía de su posición social y de las funciones que se esperaba que cumplieran dentro de la familia y la comunidad.</p>
+            <button class="btn-vermas" onclick="toggleDetalle(this)">Ver más</button>
+            <div class="detalles">
+              <p><strong>🎭 Contexto cultural:</strong> Las creencias religiosas, las tradiciones y las costumbres orientaban la vida cotidiana. La educación estaba relacionada con los valores de cada sociedad, como la disciplina, la obediencia, la formación para la vida pública o la preparación para desempeñar determinados roles.</p>
+              <p><strong>👧 Concepción de las infancias:</strong> La infancia no se entendía de la misma manera que hoy. Los niños eran vistos principalmente desde las necesidades y expectativas de los adultos y de la sociedad. La experiencia infantil variaba según el género, la familia y la condición social.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. EDAD MEDIA -->
+        <div class="evento">
+          <div class="contenido">
+            <span class="epoca">Siglo V – siglo XV</span>
+            <span class="emoji">⛪</span>
+            <h3>2. Edad Media</h3>
+            <p><strong>Contexto social:</strong> La sociedad medieval estaba marcada por relaciones de dependencia, diferencias estamentales y una fuerte influencia de la Iglesia. La familia y la comunidad tenían un papel central en la transmisión de costumbres y formas de vida.</p>
+            <button class="btn-vermas" onclick="toggleDetalle(this)">Ver más</button>
+            <div class="detalles">
+              <p><strong>📜 Contexto cultural:</strong> La religión cristiana tuvo una gran influencia en los valores, la educación y las costumbres de gran parte de Europa. La enseñanza estuvo vinculada a instituciones religiosas y a la transmisión de conocimientos, normas y valores.</p>
+              <p><strong>🧒 Concepción de las infancias:</strong> La experiencia de niños y niñas dependía de su familia y condición social. En muchos casos, desde edades tempranas participaban en tareas domésticas, agrícolas o de aprendizaje de oficios. La infancia no era reconocida como una etapa universal con las características que hoy le atribuimos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. EDAD MODERNA -->
+        <div class="evento">
+          <div class="contenido">
+            <span class="epoca">Siglo XV – siglo XVIII</span>
+            <span class="emoji">📚</span>
+            <h3>3. Edad Moderna</h3>
+            <p><strong>Contexto social:</strong> Se produjeron cambios políticos, económicos y culturales asociados al Renacimiento, la expansión de los Estados y nuevas formas de pensamiento. Poco a poco aumentó el interés por la educación y por comprender las características particulares de la niñez.</p>
+            <button class="btn-vermas" onclick="toggleDetalle(this)">Ver más</button>
+            <div class="detalles">
+              <p><strong>🔭 Contexto cultural:</strong> El humanismo, la expansión de la cultura escrita y nuevas ideas sobre la persona favorecieron una mayor atención a la educación. Se fortaleció la reflexión sobre cómo enseñar y formar a los niños de acuerdo con sus características.</p>
+              <p><strong>🌱 Concepción de las infancias:</strong> Comenzó a consolidarse una visión de la infancia como una etapa particular del desarrollo que requería formación y cuidado. Aunque persistieron desigualdades, surgieron nuevas preocupaciones por la educación y el desarrollo infantil.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. CONTEMPORÁNEA -->
+        <div class="evento">
+          <div class="contenido">
+            <span class="epoca">Siglos XIX – XXI</span>
+            <span class="emoji">🏫</span>
+            <h3>4. Hacia una concepción contemporánea</h3>
+            <p><strong>Contexto social:</strong> La escolarización se amplió y los cambios sociales y económicos llevaron a nuevas discusiones sobre educación, protección y bienestar infantil. Las desigualdades continuaron existiendo, pero aumentó el reconocimiento social de las necesidades de la niñez.</p>
+            <button class="btn-vermas" onclick="toggleDetalle(this)">Ver más</button>
+            <div class="detalles">
+              <p><strong>⚖️ Contexto cultural:</strong> Las ideas pedagógicas y psicológicas dieron mayor importancia al desarrollo, el aprendizaje, el juego, la protección y la participación. La infancia empezó a entenderse como una etapa con características propias y no únicamente como preparación para la adultez.</p>
+              <p><strong>🫶 Concepción de las infancias:</strong> Se avanza hacia una comprensión plural: no existe una sola manera de vivir la infancia. Las condiciones familiares, culturales, sociales y territoriales generan experiencias diversas.</p>
+              <p><strong>🧠 Autores y aportes:</strong></p>
+              <p>• <strong>María Montessori:</strong> desarrolló una propuesta educativa centrada en la autonomía, el ambiente preparado y la actividad del niño.</p>
+              <p>• <strong>Jean Piaget:</strong> estudió el desarrollo cognitivo y mostró que los niños construyen conocimientos de manera progresiva.</p>
+              <p>• <strong>Lev Vygotsky:</strong> resaltó la importancia de la interacción social y cultural en el aprendizaje y el desarrollo.</p>
+              <p><strong>⚖️ Transformaciones e hitos normativos:</strong> Durante los siglos XX y XXI se fortalecieron normas y acuerdos internacionales para la protección de la niñez. Un hito fundamental fue la Convención sobre los Derechos del Niño de 1989, que consolidó el reconocimiento de niños y niñas como sujetos de derechos.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /timeline -->
+
+      <!-- IDEA CLAVE -->
+      <div class="idea-clave">
+        <strong>IDEA CLAVE</strong>
+        La infancia se comprende actualmente como una construcción social e histórica, diversa y atravesada por derechos, participación, protección, educación y dignidad.
+      </div>
+
+      <!-- BLOQUES 5 AL 8 -->
+      <div class="bloque">
+        <h3>5. Transformación histórica de la concepción de infancia</h3>
+        <p>Al observar el recorrido histórico, se puede reconocer un cambio progresivo: de concepciones centradas principalmente en las expectativas de los adultos y en el lugar social asignado a los niños, hacia una comprensión de las infancias como experiencias diversas y hacia el reconocimiento de niños y niñas como sujetos de derechos.</p>
+      </div>
+
+      <div class="bloque">
+        <h3>6. Relación con la educación infantil</h3>
+        <p>Conocer la historia de las infancias permite comprender que las formas de educar no son iguales en todos los tiempos ni en todas las culturas. Para la educación infantil actual es importante reconocer las características, necesidades, voces, contextos y derechos de cada niño y niña.</p>
+      </div>
+
+      <div class="bloque">
+        <h3>7. Reflexión crítica</h3>
+        <p>La historia de las infancias muestra que la manera de entender a los niños y las niñas ha cambiado de acuerdo con las condiciones sociales, culturales y educativas de cada época. Este recorrido permite valorar los avances logrados en materia de protección, educación y derechos, pero también reconocer que todavía existen situaciones de desigualdad y exclusión.</p>
+        <p>Como futuras educadoras infantiles, conocer estas transformaciones nos ayuda a evitar prácticas que desconozcan la voz o la dignidad de los niños. También nos invita a reconocer la diversidad de las infancias, promover su participación y construir ambientes educativos donde cada niño y niña sea escuchado, respetado y acompañado en su desarrollo.</p>
+      </div>
+
+      <div class="bloque">
+        <h3>8. Conclusión</h3>
+        <p>La construcción histórica de las infancias permite comprender que la idea de niño, niña y niñez no ha sido siempre la misma. Las transformaciones sociales, culturales, pedagógicas y normativas han contribuido a reconocer progresivamente a los niños y niñas como personas con necesidades, capacidades y derechos. Por ello, estudiar esta historia es fundamental para fortalecer una educación infantil respetuosa, inclusiva y comprometida con la dignidad y el bienestar de las infancias.</p>
+      </div>
+
+      <!-- REFERENCIAS DENTRO DE ESTA PESTAÑA -->
+      <div class="referencias">
+        <h3>📚 Referencias bibliográficas (Normas APA)</h3>
+        <p>Ariès, P. (1987). <em>El niño y la vida familiar en el Antiguo Régimen</em>. Taurus.</p>
+        <p>Comenio, J. A. (1986). <em>Didáctica magna</em>. Porrúa.</p>
+        <p>Rousseau, J.-J. (2000). <em>Emilio o de la educación</em>. Alianza.</p>
+        <p>UNICEF. (1989). <em>Convención sobre los Derechos del Niño</em>.</p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<footer>
+  Página elaborada con fines académicos y educativos · Construcción histórica de las infancias
+</footer>
+
+<script>
+  // Sistema de pestañas
+  const botones = document.querySelectorAll('.tab-btn');
+  const contenidos = document.querySelectorAll('.tab-content');
+
+  botones.forEach(btn => {
+    btn.addEventListener('click', () => {
+      botones.forEach(b => b.classList.remove('active'));
+      contenidos.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Botones "Ver más"
+  function toggleDetalle(boton) {
+    const detalles = boton.nextElementSibling;
+    detalles.classList.toggle('abierto');
+    boton.textContent = detalles.classList.contains('abierto') ? 'Ver menos' : 'Ver más';
+  }
+</script>
 
 </body>
 </html>
