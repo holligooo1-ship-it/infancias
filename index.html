@@ -4,69 +4,127 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Construcción histórica de las infancias</title>
+
+<!-- Tipografías redondeadas y amigables -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f1ec;
-    color: #2c2c2c;
-    line-height: 1.6;
+  :root {
+    --rosa: #ff8fab;
+    --rosa-suave: #ffc2d1;
+    --amarillo: #ffd166;
+    --menta: #7ae0c1;
+    --lila: #b892ff;
+    --azul-cielo: #8ecae6;
+    --crema: #fff8f0;
+    --texto: #4a3a52;
+    --texto-suave: #6b5b73;
   }
+
+  body {
+    font-family: 'Quicksand', 'Segoe UI', sans-serif;
+    background: var(--crema);
+    color: var(--texto);
+    line-height: 1.7;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(255, 143, 171, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 90% 80%, rgba(184, 146, 255, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 50% 50%, rgba(122, 224, 193, 0.05) 0%, transparent 40%);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Baloo 2', cursive; letter-spacing: 0.3px; }
 
   /* ---------- ENCABEZADO ---------- */
   header {
-    background: linear-gradient(135deg, #6d597a 0%, #b56576 100%);
+    background: linear-gradient(135deg, var(--rosa) 0%, var(--lila) 60%, var(--azul-cielo) 100%);
     color: #fff;
-    padding: 50px 20px 40px;
+    padding: 60px 20px 50px;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 6px dashed #fff;
   }
+  header::before,
+  header::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  header::before { width: 140px; height: 140px; top: -40px; left: -40px; }
+  header::after  { width: 100px; height: 100px; bottom: -30px; right: -30px; }
+
   header h1 {
-    font-size: 2.2rem;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
   }
+  header h1::before { content: '🧸 '; }
+  header h1::after  { content: ' 🎈'; }
+
   header p {
-    font-size: 1rem;
-    opacity: 0.9;
-    max-width: 700px;
+    font-size: 1.05rem;
+    max-width: 720px;
     margin: 0 auto;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
   }
 
   /* ---------- MENÚ DE PESTAÑAS ---------- */
   nav {
-    background: #3d3149;
+    background: #fff;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 14px 10px;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(255, 143, 171, 0.15);
+    gap: 10px;
+    border-bottom: 3px dashed var(--rosa-suave);
   }
   nav button {
-    background: none;
-    border: none;
-    color: #ddd;
-    padding: 16px 22px;
+    font-family: 'Baloo 2', cursive;
+    background: #fff;
+    border: 3px solid var(--rosa-suave);
+    color: var(--texto);
+    padding: 10px 22px;
     font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    font-weight: 600;
-    transition: all 0.25s;
-    border-bottom: 3px solid transparent;
+    border-radius: 30px;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 0 var(--rosa-suave);
   }
-  nav button:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  nav button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 var(--rosa-suave);
+    background: var(--crema);
+  }
   nav button.active {
+    background: linear-gradient(135deg, var(--rosa), var(--lila));
     color: #fff;
-    border-bottom: 3px solid #b56576;
-    background: rgba(181,101,118,0.15);
+    border-color: transparent;
+    box-shadow: 0 4px 0 #d17a99, 0 6px 14px rgba(184, 146, 255, 0.4);
+    transform: translateY(-1px);
   }
 
   /* ---------- SECCIONES ---------- */
   .tab-content { display: none; animation: fade 0.4s ease; }
   .tab-content.active { display: block; }
-  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
   section {
     max-width: 1000px;
@@ -76,99 +134,152 @@
 
   .card {
     background: #fff;
-    border-radius: 14px;
-    padding: 35px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    border-radius: 24px;
+    padding: 38px;
+    box-shadow: 0 8px 24px rgba(184, 146, 255, 0.12);
     margin-bottom: 25px;
+    border: 3px solid var(--crema);
+    position: relative;
+  }
+  .card::before {
+    content: '✨';
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    font-size: 1.4rem;
+    opacity: 0.6;
   }
 
   h2 {
-    color: #6d597a;
-    font-size: 1.8rem;
-    margin-bottom: 18px;
-    border-left: 5px solid #b56576;
-    padding-left: 14px;
+    color: var(--lila);
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 6px;
+  }
+  h2::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%; height: 6px;
+    background: linear-gradient(90deg, var(--rosa), var(--amarillo), var(--menta));
+    border-radius: 6px;
   }
 
   h3 {
-    color: #b56576;
-    font-size: 1.3rem;
+    color: var(--rosa);
+    font-size: 1.35rem;
+    font-weight: 700;
     margin-bottom: 10px;
   }
 
   h4 {
-    color: #6d597a;
+    color: var(--lila);
     font-size: 1.05rem;
     margin-top: 14px;
     margin-bottom: 6px;
   }
 
-  p { margin-bottom: 12px; text-align: justify; }
+  p { margin-bottom: 12px; text-align: justify; font-weight: 500; color: var(--texto-suave); }
 
   /* ---------- INTEGRANTES ---------- */
   .integrante {
     display: flex;
     gap: 20px;
-    padding: 20px;
-    background: #faf7f4;
-    border-radius: 12px;
+    padding: 22px;
+    background: linear-gradient(135deg, #fff8f0, #fdf1f6);
+    border-radius: 20px;
     margin-bottom: 18px;
     align-items: center;
-    border-left: 4px solid #b56576;
-    transition: transform 0.2s;
+    border: 3px dashed var(--rosa-suave);
+    transition: transform 0.25s, box-shadow 0.25s;
   }
-  .integrante:hover { transform: translateX(4px); }
+  .integrante:hover {
+    transform: translateY(-3px) rotate(-0.5deg);
+    box-shadow: 0 10px 22px rgba(255, 143, 171, 0.25);
+  }
   .integrante img {
-    width: 90px; height: 90px;
+    width: 95px; height: 95px;
     border-radius: 50%;
     object-fit: cover;
-    background: #ddd;
+    background: #ffe0e9;
     flex-shrink: 0;
-    border: 3px solid #b56576;
+    border: 4px solid var(--amarillo);
+    box-shadow: 0 4px 10px rgba(255, 209, 102, 0.5);
   }
-  .integrante .info strong { color: #3d3149; font-size: 1.1rem; }
+  .integrante .info strong {
+    color: var(--lila);
+    font-size: 1.15rem;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+  }
   .integrante .info .rol {
     display: inline-block;
-    background: #6d597a;
+    background: linear-gradient(135deg, var(--menta), var(--azul-cielo));
     color: #fff;
-    font-size: 0.78rem;
-    padding: 3px 10px;
-    border-radius: 12px;
+    font-size: 0.8rem;
+    padding: 4px 14px;
+    border-radius: 14px;
     margin: 6px 0;
+    font-weight: 700;
+    font-family: 'Baloo 2', cursive;
   }
-  .integrante .info em { color: #555; font-size: 0.95rem; display: block; margin-top: 6px; }
+  .integrante .info em {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    display: block;
+    margin-top: 6px;
+    font-style: normal;
+  }
 
   /* ---------- LÍNEA DE TIEMPO ---------- */
   .intro-timeline {
-    background: #f9f4ef;
-    padding: 22px;
-    border-left: 5px solid #6d597a;
-    border-radius: 10px;
-    margin-bottom: 35px;
+    background: linear-gradient(135deg, #fff3e0, #fde8f1);
+    padding: 24px 26px;
+    border-radius: 18px;
+    border: 3px dashed var(--amarillo);
+    margin-bottom: 40px;
     font-style: italic;
-    color: #4a4a4a;
+    color: var(--texto);
+    font-weight: 500;
+    position: relative;
+  }
+  .intro-timeline::before {
+    content: '📖';
+    position: absolute;
+    top: -16px;
+    left: 24px;
+    background: #fff;
+    padding: 4px 10px;
+    border-radius: 50%;
+    font-size: 1.4rem;
   }
 
-  .timeline {
-    position: relative;
-    padding: 20px 0;
-  }
+  .timeline { position: relative; padding: 20px 0; }
   .timeline::before {
     content: '';
     position: absolute;
     left: 50%;
     top: 0; bottom: 0;
-    width: 4px;
-    background: linear-gradient(#b56576, #6d597a);
+    width: 6px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--rosa) 0px, var(--rosa) 12px,
+      var(--amarillo) 12px, var(--amarillo) 24px,
+      var(--menta) 24px, var(--menta) 36px,
+      var(--lila) 36px, var(--lila) 48px
+    );
     transform: translateX(-50%);
-    border-radius: 4px;
+    border-radius: 8px;
   }
 
   .evento {
     position: relative;
     width: 50%;
-    padding: 0 40px;
-    margin-bottom: 35px;
+    padding: 0 45px;
+    margin-bottom: 40px;
   }
   .evento:nth-child(odd) { left: 0; text-align: right; }
   .evento:nth-child(even) { left: 50%; text-align: left; }
@@ -176,129 +287,210 @@
   .evento::after {
     content: '';
     position: absolute;
-    top: 20px;
-    width: 18px; height: 18px;
-    background: #b56576;
-    border: 3px solid #fff;
+    top: 22px;
+    width: 22px; height: 22px;
+    background: #fff;
+    border: 5px solid var(--rosa);
     border-radius: 50%;
-    box-shadow: 0 0 0 3px #b56576;
+    box-shadow: 0 0 0 4px rgba(255, 143, 171, 0.25);
+    z-index: 2;
   }
-  .evento:nth-child(odd)::after { right: -12px; }
-  .evento:nth-child(even)::after { left: -12px; }
+  .evento:nth-child(odd)::after { right: -16px; border-color: var(--rosa); }
+  .evento:nth-child(even)::after { left: -16px; border-color: var(--lila); }
 
   .evento .contenido {
     background: #fff;
-    padding: 22px;
-    border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-    transition: transform 0.25s, box-shadow 0.25s;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(184, 146, 255, 0.15);
+    border: 3px solid #fff;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    position: relative;
   }
+  .evento:nth-child(odd) .contenido { background: linear-gradient(135deg, #fff, #fff5f8); }
+  .evento:nth-child(even) .contenido { background: linear-gradient(135deg, #fff, #f3f0ff); }
+
   .evento .contenido:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(181,101,118,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(184, 146, 255, 0.28);
+    border-color: var(--rosa-suave);
   }
 
   .evento .epoca {
     display: inline-block;
-    background: #6d597a;
-    color: #fff;
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    border-radius: 12px;
-    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--amarillo), var(--rosa-suave));
+    color: #7a4d5e;
+    font-size: 0.8rem;
+    padding: 4px 14px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-family: 'Baloo 2', cursive;
+    letter-spacing: 0.5px;
   }
 
-  .evento .emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .evento .emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 6px;
+    filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.1));
+  }
 
-  /* Botón "Ver más" */
+  /* ---------- BOTÓN "VER MÁS" tipo burbuja ---------- */
   .btn-vermas {
-    background: #b56576;
+    font-family: 'Baloo 2', cursive;
+    background: linear-gradient(135deg, var(--menta), var(--azul-cielo));
     color: #fff;
     border: none;
-    padding: 8px 18px;
-    border-radius: 20px;
+    padding: 10px 24px;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 0.88rem;
-    font-weight: 600;
-    margin-top: 12px;
-    transition: background 0.25s;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 0 #4fb89c, 0 6px 14px rgba(122, 224, 193, 0.4);
+    letter-spacing: 0.4px;
   }
-  .btn-vermas:hover { background: #6d597a; }
+  .btn-vermas:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #4fb89c, 0 10px 18px rgba(122, 224, 193, 0.5);
+    background: linear-gradient(135deg, var(--azul-cielo), var(--menta));
+  }
+  .btn-vermas:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #4fb89c;
+  }
 
   .detalles {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, margin-top 0.3s;
+    transition: max-height 0.5s ease, margin-top 0.3s;
     margin-top: 0;
   }
-  .detalles.abierto {
-    max-height: 800px;
-    margin-top: 14px;
-  }
+  .detalles.abierto { max-height: 900px; margin-top: 14px; }
+
   .detalles p {
-    background: #f9f4ef;
-    padding: 12px 14px;
-    border-radius: 8px;
-    margin-bottom: 8px;
+    background: #fff8f0;
+    padding: 14px 16px;
+    border-radius: 14px;
+    margin-bottom: 10px;
     font-size: 0.95rem;
     text-align: left;
+    border-left: 5px solid var(--amarillo);
   }
 
   /* ---------- REFERENCIAS ---------- */
   .referencias {
-    background: #f9f4ef;
-    padding: 25px;
-    border-radius: 12px;
-    border-left: 5px solid #b56576;
+    background: linear-gradient(135deg, #f3f0ff, #fff5f8);
+    padding: 28px;
+    border-radius: 20px;
+    border: 3px dashed var(--lila);
     margin-top: 40px;
+    position: relative;
   }
-  .referencias h3 { color: #6d597a; margin-bottom: 16px; }
+  .referencias::before {
+    content: '📚';
+    position: absolute;
+    top: -20px;
+    left: 26px;
+    background: #fff;
+    padding: 6px 12px;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    border: 3px solid var(--lila);
+  }
+  .referencias h3 { color: var(--lila); margin-bottom: 18px; margin-top: 10px; }
   .referencias p {
-    padding-left: 30px;
-    text-indent: -30px;
-    margin-bottom: 12px;
-    font-size: 0.95rem;
+    padding-left: 32px;
+    text-indent: -32px;
+    margin-bottom: 14px;
+    font-size: 0.98rem;
+    color: var(--texto);
   }
 
-  /* ---------- TEXTO EXTRA ---------- */
+  /* ---------- BLOQUES EXTRA ---------- */
   .bloque {
     background: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    border-radius: 20px;
+    padding: 26px;
+    margin-bottom: 22px;
+    box-shadow: 0 5px 16px rgba(255, 143, 171, 0.1);
+    border-left: 6px solid var(--menta);
+    transition: transform 0.2s;
   }
+  .bloque:hover { transform: translateX(5px); }
+  .bloque:nth-of-type(2) { border-left-color: var(--amarillo); }
+  .bloque:nth-of-type(3) { border-left-color: var(--rosa); }
+  .bloque:nth-of-type(4) { border-left-color: var(--lila); }
+
   .bloque h3 { margin-bottom: 12px; }
+
   .idea-clave {
-    background: linear-gradient(135deg, #b56576, #6d597a);
+    background: linear-gradient(135deg, var(--rosa), var(--lila), var(--azul-cielo));
     color: #fff;
-    padding: 25px;
-    border-radius: 12px;
+    padding: 30px;
+    border-radius: 24px;
     text-align: center;
-    font-size: 1.05rem;
-    margin: 25px 0;
-    box-shadow: 0 6px 20px rgba(109,89,122,0.35);
+    font-size: 1.1rem;
+    margin: 30px 0;
+    box-shadow: 0 10px 28px rgba(184, 146, 255, 0.4);
+    font-weight: 600;
+    position: relative;
+    border: 4px solid #fff;
   }
-  .idea-clave strong { display: block; font-size: 0.9rem; letter-spacing: 1px; opacity: 0.85; margin-bottom: 8px; }
+  .idea-clave::before {
+    content: '🌟';
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 6px 14px;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .idea-clave strong {
+    display: block;
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    opacity: 0.95;
+    margin-bottom: 10px;
+  }
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 720px) {
-    header h1 { font-size: 1.5rem; }
-    .timeline::before { left: 20px; }
-    .evento { width: 100%; left: 0 !important; padding-left: 55px; padding-right: 10px; text-align: left !important; }
-    .evento::after { left: 11px !important; right: auto !important; }
+    header h1 { font-size: 1.6rem; }
+    header h1::before, header h1::after { content: ''; }
+    h2 { font-size: 1.5rem; }
+    .timeline::before { left: 22px; }
+    .evento {
+      width: 100%;
+      left: 0 !important;
+      padding-left: 60px;
+      padding-right: 10px;
+      text-align: left !important;
+    }
+    .evento::after { left: 12px !important; right: auto !important; }
     .integrante { flex-direction: column; text-align: center; }
-    nav button { padding: 12px; font-size: 0.9rem; }
+    nav button { padding: 8px 16px; font-size: 0.9rem; }
+    .card { padding: 24px; }
   }
 
   footer {
     text-align: center;
-    padding: 25px;
-    color: #777;
-    font-size: 0.85rem;
-    background: #efe9e3;
-    margin-top: 40px;
+    padding: 30px 20px;
+    color: var(--texto-suave);
+    font-size: 0.88rem;
+    background: linear-gradient(135deg, #fff8f0, #fde8f1);
+    margin-top: 50px;
+    border-top: 4px dashed var(--rosa-suave);
+    font-weight: 500;
   }
+  footer::before { content: '🌈 '; }
+  footer::after  { content: ' 🌈'; }
 </style>
 </head>
 <body>
@@ -331,7 +523,7 @@
       <h2>Integrantes del grupo</h2>
 
       <div class="integrante">
-        <img src="https://via.placeholder.com/90" alt="Foto integrante 1">
+        <img src="https://via.placeholder.com/95" alt="Foto integrante 1">
         <div class="info">
           <strong>[Nombre completo 1]</strong>
           <span class="rol">Coordinadora general</span>
@@ -340,7 +532,7 @@
       </div>
 
       <div class="integrante">
-        <img src="https://via.placeholder.com/90" alt="Foto integrante 2">
+        <img src="https://via.placeholder.com/95" alt="Foto integrante 2">
         <div class="info">
           <strong>[Nombre completo 2]</strong>
           <span class="rol">Investigadora</span>
@@ -349,7 +541,7 @@
       </div>
 
       <div class="integrante">
-        <img src="https://via.placeholder.com/90" alt="Foto integrante 3">
+        <img src="https://via.placeholder.com/95" alt="Foto integrante 3">
         <div class="info">
           <strong>[Nombre completo 3]</strong>
           <span class="rol">Diseñadora de contenido</span>
@@ -358,7 +550,7 @@
       </div>
 
       <div class="integrante">
-        <img src="https://via.placeholder.com/90" alt="Foto integrante 4">
+        <img src="https://via.placeholder.com/95" alt="Foto integrante 4">
         <div class="info">
           <strong>[Nombre completo 4]</strong>
           <span class="rol">Editora de textos</span>
@@ -367,7 +559,7 @@
       </div>
 
       <div class="integrante">
-        <img src="https://via.placeholder.com/90" alt="Foto integrante 5">
+        <img src="https://via.placeholder.com/95" alt="Foto integrante 5">
         <div class="info">
           <strong>[Nombre completo 5]</strong>
           <span class="rol">Responsable de referencias</span>
@@ -490,7 +682,7 @@
 
       <!-- REFERENCIAS DENTRO DE ESTA PESTAÑA -->
       <div class="referencias">
-        <h3>📚 Referencias bibliográficas (Normas APA)</h3>
+        <h3>Referencias bibliográficas (Normas APA)</h3>
         <p>Ariès, P. (1987). <em>El niño y la vida familiar en el Antiguo Régimen</em>. Taurus.</p>
         <p>Comenio, J. A. (1986). <em>Didáctica magna</em>. Porrúa.</p>
         <p>Rousseau, J.-J. (2000). <em>Emilio o de la educación</em>. Alianza.</p>
@@ -510,23 +702,4 @@
   const botones = document.querySelectorAll('.tab-btn');
   const contenidos = document.querySelectorAll('.tab-content');
 
-  botones.forEach(btn => {
-    btn.addEventListener('click', () => {
-      botones.forEach(b => b.classList.remove('active'));
-      contenidos.forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.tab).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
-
-  // Botones "Ver más"
-  function toggleDetalle(boton) {
-    const detalles = boton.nextElementSibling;
-    detalles.classList.toggle('abierto');
-    boton.textContent = detalles.classList.contains('abierto') ? 'Ver menos' : 'Ver más';
-  }
-</script>
-
-</body>
-</html>
+ 
