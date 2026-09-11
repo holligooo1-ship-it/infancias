@@ -226,13 +226,13 @@ p { margin-bottom: 12px; text-align: justify; font-weight: 500; color: var(--tex
   box-shadow: 0 10px 22px rgba(255, 143, 171, 0.25);
 }
 .integrante img {
-  width: 130px; height: 130px;
+  width: 160px; height: 160px;
   border-radius: 50%;
   object-fit: cover;
   background: #ffe0e9;
   flex-shrink: 0;
   border: 5px solid var(--amarillo);
-  box-shadow: 0 4px 12px rgba(255, 209, 102, 0.5);
+  box-shadow: 0 6px 16px rgba(255, 209, 102, 0.55);
 }
 .integrante .info strong {
   color: var(--lila);
