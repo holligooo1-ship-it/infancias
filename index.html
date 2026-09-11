@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Construcción histórica de las infancias</title>
 
-<!-- Tipografías redondeadas y amigables -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -97,8 +96,8 @@
     background: #fff;
     border: 3px solid var(--rosa-suave);
     color: var(--texto);
-    padding: 10px 22px;
-    font-size: 1rem;
+    padding: 10px 20px;
+    font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
     border-radius: 30px;
@@ -183,6 +182,50 @@
   }
 
   p { margin-bottom: 12px; text-align: justify; font-weight: 500; color: var(--texto-suave); }
+
+  /* ---------- PESTAÑAS VACÍAS (PRÓXIMAMENTE) ---------- */
+  .proximamente {
+    text-align: center;
+    padding: 60px 30px;
+    background: linear-gradient(135deg, #fff8f0, #fdf1f6, #f0f6ff);
+    border-radius: 24px;
+    border: 4px dashed var(--lila);
+    position: relative;
+  }
+  .proximamente .icono {
+    font-size: 4.5rem;
+    margin-bottom: 18px;
+    display: inline-block;
+    animation: flotar 3s ease-in-out infinite;
+  }
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50%      { transform: translateY(-12px) rotate(3deg); }
+  }
+  .proximamente h3 {
+    font-size: 1.8rem;
+    color: var(--lila);
+    margin-bottom: 14px;
+  }
+  .proximamente p {
+    text-align: center;
+    font-size: 1.05rem;
+    max-width: 560px;
+    margin: 0 auto 8px;
+  }
+  .proximamente .etiqueta {
+    display: inline-block;
+    margin-top: 22px;
+    background: linear-gradient(135deg, var(--amarillo), var(--rosa));
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(255, 143, 171, 0.4);
+  }
 
   /* ---------- INTEGRANTES ---------- */
   .integrante {
@@ -336,7 +379,7 @@
     filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.1));
   }
 
-  /* ---------- BOTÓN "VER MÁS" tipo burbuja ---------- */
+  /* ---------- BOTÓN "VER MÁS" ---------- */
   .btn-vermas {
     font-family: 'Baloo 2', cursive;
     background: linear-gradient(135deg, var(--menta), var(--azul-cielo));
@@ -475,8 +518,9 @@
     }
     .evento::after { left: 12px !important; right: auto !important; }
     .integrante { flex-direction: column; text-align: center; }
-    nav button { padding: 8px 16px; font-size: 0.9rem; }
+    nav button { padding: 8px 14px; font-size: 0.82rem; }
     .card { padding: 24px; }
+    .proximamente { padding: 40px 20px; }
   }
 
   footer {
@@ -504,6 +548,9 @@
   <button class="tab-btn active" data-tab="inicio">🏠 Inicio</button>
   <button class="tab-btn" data-tab="integrantes">👥 Integrantes</button>
   <button class="tab-btn" data-tab="construccion">📜 Construcción histórica</button>
+  <button class="tab-btn" data-tab="perspectiva">🔍 Infancias en perspectiva</button>
+  <button class="tab-btn" data-tab="realidades">🌍 Realidades y desafíos</button>
+  <button class="tab-btn" data-tab="voces">🗣️ Voces para la transformación</button>
 </nav>
 
 <!-- ============ PESTAÑA INICIO ============ -->
@@ -672,36 +719,6 @@
       <div class="bloque">
         <h3>7. Reflexión crítica</h3>
         <p>La historia de las infancias muestra que la manera de entender a los niños y las niñas ha cambiado de acuerdo con las condiciones sociales, culturales y educativas de cada época. Este recorrido permite valorar los avances logrados en materia de protección, educación y derechos, pero también reconocer que todavía existen situaciones de desigualdad y exclusión.</p>
-        <p>Como futuras educadoras infantiles, conocer estas transformaciones nos ayuda a evitar prácticas que desconozcan la voz o la dignidad de los niños. También nos invita a reconocer la diversidad de las infancias, promover su participación y construir ambientes educativos donde cada niño y niña sea escuchado, respetado y acompañado en su desarrollo.</p>
-      </div>
-
-      <div class="bloque">
-        <h3>8. Conclusión</h3>
-        <p>La construcción histórica de las infancias permite comprender que la idea de niño, niña y niñez no ha sido siempre la misma. Las transformaciones sociales, culturales, pedagógicas y normativas han contribuido a reconocer progresivamente a los niños y niñas como personas con necesidades, capacidades y derechos. Por ello, estudiar esta historia es fundamental para fortalecer una educación infantil respetuosa, inclusiva y comprometida con la dignidad y el bienestar de las infancias.</p>
-      </div>
-
-      <!-- REFERENCIAS DENTRO DE ESTA PESTAÑA -->
-      <div class="referencias">
-        <h3>Referencias bibliográficas (Normas APA)</h3>
-        <p>Ariès, P. (1987). <em>El niño y la vida familiar en el Antiguo Régimen</em>. Taurus.</p>
-        <p>Comenio, J. A. (1986). <em>Didáctica magna</em>. Porrúa.</p>
-        <p>Rousseau, J.-J. (2000). <em>Emilio o de la educación</em>. Alianza.</p>
-        <p>UNICEF. (1989). <em>Convención sobre los Derechos del Niño</em>.</p>
-      </div>
-
-    </div>
-  </section>
-</div>
-
-<footer>
-  Página elaborada con fines académicos y educativos · Construcción histórica de las infancias
-</footer>
-
-<script>
-  // Sistema de pestañas
-  const botones = document.querySelectorAll('.tab-btn');
-  const contenidos = document.querySelectorAll('.tab-content');
-
- 
+        <p>Como futuras educadoras infantiles, conocer estas transformaciones nos ayuda a evitar prácticas que desconozcan la voz o la dignidad de los niños. También nos invita a
 
  
