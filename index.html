@@ -301,92 +301,218 @@
   </section>
 </div>
   
- /* ===== ESTILOS NUEVOS PARA INFANCIAS EN PERSPECTIVA ===== */
-.grid-autores {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
+<!-- ============ PESTAÑA INFANCIAS EN PERSPECTIVA ============ -->
+<div id="perspectiva" class="tab-content">
+  <section>
+    <div class="card">
+      <h2>Infancias en perspectiva</h2>
+      <div class="intro-timeline">
+        <strong>Pensadores y aportes a la construcción histórica y contemporánea de la infancia.</strong><br>
+        Un recorrido por distintas perspectivas que ayudan a comprender a los niños y las niñas como sujetos de derechos, participantes activos y protagonistas de su aprendizaje.
+      </div>
 
-.autor-card {
-  background: linear-gradient(135deg, #fff, #fff5f8);
-  border-radius: 18px;
-  padding: 22px;
-  border: 3px solid var(--rosa-suave);
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-.autor-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(255, 143, 171, 0.2);
-}
+      <h3>1. Autores y aportes</h3>
+      <p>Explora las distintas miradas sobre la infancia:</p>
 
-.autor-card .etiqueta-autor {
-  display: inline-block;
-  background: var(--menta);
-  color: #fff;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  font-family: 'Baloo 2', cursive;
-  margin-bottom: 10px;
-}
-.autor-card h4 {
-  color: var(--lila);
-  font-size: 1.2rem;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-.autor-card p {
-  font-size: 0.9rem;
-  margin-bottom: 0;
-  text-align: left;
-}
+      <div class="grid-autores">
+        <!-- Autor 1 -->
+        <div class="autor-card">
+          <span class="etiqueta-autor">Desarrollo cognitivo</span>
+          <h4>Jean Piaget</h4>
+          <p>Explica que los niños construyen activamente el conocimiento al interactuar con el entorno. Su perspectiva destaca los cambios del pensamiento durante el desarrollo y la importancia de proponer experiencias acordes con los procesos de aprendizaje, sin asumir que todos los niños avanzan de manera idéntica.</p>
+        </div>
 
-/* Estilos para las Matrices de Análisis (Fichas con imágenes) */
-.matriz-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 18px;
-  border: 3px dashed var(--azul-cielo);
-  text-align: center;
-  transition: transform 0.25s;
-}
-.matriz-card:hover {
-  transform: scale(1.02);
-}
-.matriz-card h4 {
-  color: var(--texto);
-  font-size: 1rem;
-  margin-bottom: 4px;
-}
-.matriz-card .autor-ficha {
-  font-size: 0.8rem;
-  color: var(--texto-suave);
-  margin-bottom: 12px;
-  display: block;
-}
-.matriz-card .contenedor-imagen {
-  width: 100%;
-  min-height: 150px;
-  background: #fdf1f6;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border: 1px solid var(--rosa-suave);
-}
-.matriz-card .contenedor-imagen img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+        <!-- Autor 2 -->
+        <div class="autor-card">
+          <span class="etiqueta-autor">Perspectiva histórica, social y cultural</span>
+          <h4>Miguel Ángel Gómez-Mendoza</h4>
+          <p>Junto con María Victoria Alzate-Piedrahita, analiza la infancia desde una perspectiva histórica, social, educativa y cultural. Permite comprender que la infancia no es únicamente una etapa biológica, sino una construcción histórica y social que cambia según el tiempo, la cultura y el contexto. Reconoce a los niños y niñas como sujetos de derechos y experiencias propias.</p>
+        </div>
 
-@media (max-width: 720px) {
-  .grid-autores { grid-template-columns: 1fr; }
-}
+        <!-- Autor 3 -->
+        <div class="autor-card">
+          <span class="etiqueta-autor">Historia y sociedad</span>
+          <h4>Sandra Carli</h4>
+          <p>Sus estudios sobre infancia, educación y sociedad permiten reflexionar sobre cómo los cambios políticos, culturales e institucionales influyen en las experiencias infantiles y en las maneras en que una sociedad representa a los niños y las niñas.</p>
+        </div>
+
+        <!-- Autor 4 -->
+        <div class="autor-card">
+          <span class="etiqueta-autor">Perspectiva contemporánea</span>
+          <h4>Jorge Camilo Amador Baquiro</h4>
+          <p>En <em>Condición infantil contemporánea</em>, plantea que la infancia debe comprenderse a partir de las transformaciones de la sociedad contemporánea. Reconoce la diversidad de experiencias infantiles vinculadas con las condiciones sociales, culturales y familiares, e invita a superar la idea de que existe una única manera de vivir la infancia.</p>
+        </div>
+
+        <!-- Autor 5 -->
+        <div class="autor-card">
+          <span class="etiqueta-autor">Aprendizaje sociocultural</span>
+          <h4>Lev Vygotsky</h4>
+          <p>Destaca el papel de la interacción social, el lenguaje y la cultura en el aprendizaje y el desarrollo. Las relaciones con adultos y pares pueden apoyar nuevas capacidades, por lo que el acompañamiento pedagógico y la colaboración son importantes.</p>
+        </div>
+
+        <!-- Autor 6 -->
+        <div class="autor-card">
+          <span class="etiqueta-autor">Infancias en contingencia</span>
+          <h4>Yolanda Rodríguez Bernal</h4>
+          <p>Invita a reconocer las distintas experiencias infantiles y las representaciones sociales de la infancia. Destaca la importancia del contexto en la educación infantil y la necesidad de repensar las prácticas pedagógicas ante realidades sociales diversas, promoviendo una educación sensible a las necesidades y condiciones de los niños y niñas.</p>
+        </div>
+
+        <!-- Autor 7 -->
+        <div class="autor-card">
+          <span class="etiqueta-autor">Autonomía y ambiente</span>
+          <h4>María Montessori</h4>
+          <p>Propone un ambiente preparado, materiales que favorecen la exploración y oportunidades para que los niños desarrollen autonomía. El rol del adulto consiste en observar, acompañar y facilitar experiencias significativas, respetando las características de cada niño.</p>
+        </div>
+
+        <!-- Autor 8 -->
+        <div class="autor-card">
+          <span class="etiqueta-autor">Diversidad de capacidades</span>
+          <h4>Howard Earl Gardner</h4>
+          <p>Su teoría de las inteligencias múltiples invita a reconocer que las capacidades pueden expresarse de diversas maneras. En educación, esta idea inspira variedad de experiencias y formas de participación, sin convertir las categorías en etiquetas rígidas ni limitar las oportunidades.</p>
+        </div>
+
+        <!-- Autor 9 -->
+        <div class="autor-card">
+          <span class="etiqueta-autor">Historia del concepto</span>
+          <h4>Ileana Enesco</h4>
+          <p>En sus trabajos sobre el concepto de infancia a lo largo de la historia, examina cómo la idea de niñez se ha transformado con el tiempo. Su enfoque ayuda a cuestionar la idea de que la infancia siempre se ha entendido igual en todas las sociedades.</p>
+        </div>
+
+        <!-- Autor 10 -->
+        <div class="autor-card">
+          <span class="etiqueta-autor">Historia de la infancia</span>
+          <h4>Philippe Ariès</h4>
+          <p>Historiador conocido por estudiar los cambios en las concepciones de la infancia y la vida familiar, especialmente en la historia europea. Sus planteamientos fueron influyentes, aunque han recibido críticas y no deben generalizarse automáticamente a todas las culturas y épocas.</p>
+        </div>
+      </div>
+
+      <br>
+      <h3>2. Análisis crítico</h3>
+      <div class="bloque">
+        <p>El recorrido por los autores permite reconocer que la infancia no puede comprenderse desde una sola mirada. Las perspectivas del desarrollo y el aprendizaje ayudan a observar cómo los niños construyen conocimientos, interactúan con otras personas, desarrollan autonomía y expresan capacidades diversas. A su vez, las aproximaciones históricas y sociales muestran que las ideas sobre la niñez cambian según las condiciones culturales, las instituciones y las relaciones de cada época.</p>
+        <p>Un aporte importante es que invitan a dejar atrás la idea de que todos los niños aprenden de la misma manera o viven experiencias iguales. Cada niño y niña tiene una historia, unos intereses, unas necesidades y un contexto particular. Por eso, la labor pedagógica debe combinar la observación del desarrollo con la escucha, el juego, la interacción y el reconocimiento de sus derechos.</p>
+        <p>Las teorías no deben aplicarse de forma rígida ni tomarse como recetas universales. Es necesario analizarlas críticamente, considerar sus límites y relacionarlas con las realidades de las infancias actuales. Como futuras licenciadas en Educación Infantil, este análisis nos invita a planear experiencias flexibles, inclusivas y significativas, trabajar junto con las familias y la comunidad, y reconocer a los niños y las niñas como sujetos de derechos.</p>
+      </div>
+
+      <br>
+      <h3>3. Matrices de análisis</h3>
+      <p>A continuación se presentan las fichas elaboradas por el grupo:</p>
+      
+      <div class="grid-autores">
+        <!-- Ficha 1 -->
+        <div class="matriz-card">
+          <h4>Miguel Ángel Gómez-Mendoza y María Victoria Alzate-Piedrahita</h4>
+          <span class="autor-ficha">Ficha elaborada por: Rosa Elena Fonseca Puello</span>
+          <div class="contenedor-imagen">
+            <!-- IMPORTANTE: Reemplaza "ficha1.jpg" por el nombre real de tu archivo -->
+            <img src="ficha1.jpg" alt="Ficha Gómez-Mendoza">
+          </div>
+        </div>
+        
+        <!-- Ficha 2 -->
+        <div class="matriz-card">
+          <h4>Philippe Ariès (1960)</h4>
+          <span class="autor-ficha">Ficha elaborada por: Leidis Rojano Vega</span>
+          <div class="contenedor-imagen">
+            <img src="ficha2.jpg" alt="Ficha Philippe Ariès">
+          </div>
+        </div>
+
+        <!-- Ficha 3 -->
+        <div class="matriz-card">
+          <h4>I. Enesco (2010)</h4>
+          <span class="autor-ficha">Ficha elaborada por: Leidis Rojano Vega</span>
+          <div class="contenedor-imagen">
+            <img src="ficha3.jpg" alt="Ficha I. Enesco">
+          </div>
+        </div>
+
+        <!-- Ficha 4 -->
+        <div class="matriz-card">
+          <h4>Lev Vygotsky</h4>
+          <span class="autor-ficha">Ficha elaborada por: Zuad Massiel Ortega Beltran</span>
+          <div class="contenedor-imagen">
+            <img src="ficha4.jpg" alt="Ficha Lev Vygotsky">
+          </div>
+        </div>
+
+        <!-- Ficha 5 -->
+        <div class="matriz-card">
+          <h4>Yolanda Rodríguez Bernal</h4>
+          <span class="autor-ficha">Ficha elaborada por: Zuad Massiel Ortega Beltran</span>
+          <div class="contenedor-imagen">
+            <img src="ficha5.jpg" alt="Ficha Yolanda Rodríguez">
+          </div>
+        </div>
+
+        <!-- Ficha 6 -->
+        <div class="matriz-card">
+          <h4>Sandra Carli</h4>
+          <span class="autor-ficha">Ficha elaborada por: Rosa Isela Beltrán Ruiz</span>
+          <div class="contenedor-imagen">
+            <img src="ficha6.jpg" alt="Ficha Sandra Carli">
+          </div>
+        </div>
+
+        <!-- Ficha 7 -->
+        <div class="matriz-card">
+          <h4>Jorge Camilo Amador Baquiro</h4>
+          <span class="autor-ficha">Ficha elaborada por: Rosa Isela Beltrán Ruiz</span>
+          <div class="contenedor-imagen">
+            <img src="ficha7.jpg" alt="Ficha Jorge Amador">
+          </div>
+        </div>
+
+        <!-- Ficha 8 -->
+        <div class="matriz-card">
+          <h4>María Tecla Artemisia Montessori</h4>
+          <span class="autor-ficha">Ficha elaborada por: Maria Fernanda Porto Almendrales</span>
+          <div class="contenedor-imagen">
+            <img src="ficha8.jpg" alt="Ficha Montessori">
+          </div>
+        </div>
+
+        <!-- Ficha 9 -->
+        <div class="matriz-card">
+          <h4>Howard Earl Gardner</h4>
+          <span class="autor-ficha">Ficha elaborada por: Maria Fernanda Porto Almendrales</span>
+          <div class="contenedor-imagen">
+            <img src="ficha9.jpg" alt="Ficha Gardner">
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <h3>4. Conclusiones finales</h3>
+      
+      <div class="bloque">
+        <h4>Conclusión 1. Comprensión de las infancias contemporáneas</h4>
+        <p>Los aportes de Jean Piaget y Gómez-Mendoza (2014) permiten comprender que la infancia es una etapa fundamental en la que los niños construyen conocimientos mediante la exploración, la interacción y las experiencias con su entorno. Piaget destaca el desarrollo cognitivo y la importancia de respetar los ritmos de aprendizaje de cada niño, mientras que Gómez-Mendoza invita a reconocer la infancia como una construcción histórica, social y cultural. Frente a las concepciones anteriores, en las que los niños eran vistos principalmente como personas que debían obedecer, las perspectivas contemporáneas los reconocen como participantes activos de la sociedad, cuyas necesidades, opiniones y diferencias deben ser valoradas.</p>
+      </div>
+
+      <div class="bloque">
+        <h4>Conclusión 2. Niños y niñas como sujetos de derechos</h4>
+        <p>Reconocer a los niños y las niñas como sujetos de derechos implica transformar la mirada adultocéntrica que los concibe como objetos de protección, para entenderlos como personas con capacidad para opinar, decidir, participar y transformar su entorno. Este reconocimiento, sustentado en la Convención sobre los Derechos del Niño y en el marco normativo colombiano, exige garantizar no solo su cuidado y bienestar, sino también su derecho a ser escuchados, a la identidad, a la educación de calidad, al juego y a la participación activa. Desde la Educación Infantil, esto significa asumir una práctica pedagógica basada en el respeto, el diálogo y la corresponsabilidad entre familia, escuela y comunidad.</p>
+      </div>
+
+      <div class="bloque">
+        <h4>Conclusión 3. Diversidad, inclusión y equidad</h4>
+        <p>El análisis de las perspectivas contemporáneas de las infancias nos permite comprender que cada niño y niña vive su infancia de manera diferente, de acuerdo con su contexto familiar, social, cultural y educativo. La diversidad no debe considerarse una dificultad, sino una oportunidad para enriquecer las experiencias de aprendizaje. De acuerdo con la UNESCO (2020), la educación inclusiva y equitativa busca eliminar las barreras que impiden que algunas personas accedan a las mismas oportunidades educativas. Estos planteamientos nos invitan a reflexionar sobre la necesidad de construir espacios educativos donde todos puedan participar, aprender y desarrollarse integralmente.</p>
+      </div>
+
+      <div class="bloque">
+        <h4>Conclusión 4. Contextos educativos y sociales</h4>
+        <p>Los contextos familiares, educativos y sociales cumplen una función importante en las vivencias de los niños y las niñas, debido a que influyen en sus formas de aprender, relacionarse y comprender la realidad. Cada infancia se experimenta de distintas maneras, de acuerdo con las condiciones en las que se desarrollan. Comprender esos contextos ayuda a reflexionar sobre las circunstancias que pueden influir en su aprendizaje, desarrollo y bienestar. Por eso, es esencial que las prácticas pedagógicas tengan presente las diferentes realidades de la infancia, valoren sus particularidades y creen espacios inclusivos.</p>
+      </div>
+
+      <div class="bloque">
+        <h4>Conclusión 5. Aprendizajes del grupo y formación como futuras licenciadas</h4>
+        <p>El desarrollo de este trabajo nos permitió ampliar nuestra comprensión de las infancias a partir de las diferentes perspectivas históricas, sociales, culturales y educativas estudiadas. Como futuras licenciadas en Educación Infantil, estos aprendizajes fortalecen nuestro compromiso de desarrollar prácticas pedagógicas inclusivas, respetuosas y contextualizadas, que tengan en cuenta las necesidades, los intereses y las experiencias particulares de cada niño y niña. Asimismo, el trabajo colaborativo nos permitió compartir conocimientos, escuchar diferentes opiniones y construir reflexiones conjuntas que enriquecen nuestra formación profesional.</p>
+      </div>
+
+    </div>
+  </section>
+</div>
 
 <!-- ============ PESTAÑA REALIDADES Y DESAFÍOS (VACÍA) ============ -->
 <div id="realidades" class="tab-content">
