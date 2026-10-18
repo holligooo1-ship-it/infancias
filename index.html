@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilos.css?v=2">
+<link rel="stylesheet" href="estilos.css?v=3">
 </head>
 <body>
 
@@ -16,27 +16,25 @@
   <p>Un recorrido por las transformaciones sociales, culturales, educativas y jurídicas en la manera de comprender a los niños y las niñas.</p>
 </header>
 
-<nav>
-  <button class="tab-btn active" data-tab="inicio">
+<nav role="tablist" aria-label="Secciones del sitio">
+  <button class="tab-btn active" role="tab" aria-selected="true" data-tab="inicio">
     <svg class="icono-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1V11.5z"
-            fill="currentColor" opacity="0.85"/>
+      <path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1V11.5z" fill="currentColor" opacity="0.85"/>
     </svg>
     Inicio
   </button>
 
-  <button class="tab-btn" data-tab="integrantes">
+  <button class="tab-btn" role="tab" aria-selected="false" data-tab="integrantes">
     <svg class="icono-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="9" cy="8" r="3.2" fill="currentColor" opacity="0.9"/>
       <circle cx="17" cy="9" r="2.4" fill="currentColor" opacity="0.6"/>
       <path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6v1H3v-1z" fill="currentColor" opacity="0.9"/>
-      <path d="M15 14c2.8 0 5 2.2 5 5v1h-3.2c0-2-.7-3.8-1.8-5.1.6-.6 1.3-.9 2-.9z"
-            fill="currentColor" opacity="0.6"/>
+      <path d="M15 14c2.8 0 5 2.2 5 5v1h-3.2c0-2-.7-3.8-1.8-5.1.6-.6 1.3-.9 2-.9z" fill="currentColor" opacity="0.6"/>
     </svg>
     Integrantes
   </button>
 
-  <button class="tab-btn" data-tab="construccion">
+  <button class="tab-btn" role="tab" aria-selected="false" data-tab="construccion">
     <svg class="icono-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 2.5l8 3.5v3H4V6l8-3.5z" fill="currentColor" opacity="0.85"/>
       <path d="M5 10h2.5v9H5v-9z" fill="currentColor" opacity="0.75"/>
@@ -47,55 +45,47 @@
     Construcción histórica de las infancias
   </button>
 
-  <button class="tab-btn" data-tab="perspectiva">
+  <button class="tab-btn" role="tab" aria-selected="false" data-tab="perspectiva">
     <svg class="icono-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="2.4" fill="none"/>
       <circle cx="10.5" cy="10.5" r="2.2" fill="currentColor" opacity="0.7"/>
-      <line x1="15.3" y1="15.3" x2="20.5" y2="20.5" stroke="currentColor"
-            stroke-width="2.6" stroke-linecap="round"/>
+      <line x1="15.3" y1="15.3" x2="20.5" y2="20.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
     </svg>
     Infancias en perspectiva
   </button>
 
-  <button class="tab-btn" data-tab="realidades">
+  <button class="tab-btn" role="tab" aria-selected="false" data-tab="realidades">
     <svg class="icono-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="12" cy="12" r="9.2" fill="currentColor" opacity="0.85"/>
-      <path d="M3.5 12h17M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18"
-            stroke="#fff" stroke-width="1.2" fill="none" opacity="0.85"/>
-      <path d="M4.5 7.5c2 1 6 1.5 15 0" stroke="#fff" stroke-width="1.1"
-            fill="none" opacity="0.6"/>
-      <path d="M4.5 16.5c2-1 6-1.5 15 0" stroke="#fff" stroke-width="1.1"
-            fill="none" opacity="0.6"/>
+      <path d="M3.5 12h17M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18" stroke="#fff" stroke-width="1.2" fill="none" opacity="0.85"/>
+      <path d="M4.5 7.5c2 1 6 1.5 15 0" stroke="#fff" stroke-width="1.1" fill="none" opacity="0.6"/>
+      <path d="M4.5 16.5c2-1 6-1.5 15 0" stroke="#fff" stroke-width="1.1" fill="none" opacity="0.6"/>
      </svg>
     Comprendiendo las realidades y desafíos de las infancias
   </button>
 
-  <button class="tab-btn" data-tab="voces">
+  <button class="tab-btn" role="tab" aria-selected="false" data-tab="voces">
     <svg class="icono-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="4" y="4" width="12" height="14" rx="2.4" fill="currentColor" opacity="0.6"/>
       <rect x="7" y="6" width="13" height="12" rx="2.4" fill="currentColor" opacity="0.9"/>
-      <path d="M10 10h7M10 13h7M10 16h4" stroke="#fff" stroke-width="1.4"
-            stroke-linecap="round" opacity="0.9"/>
+      <path d="M10 10h7M10 13h7M10 16h4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.9"/>
     </svg>
     Voces para la transformación de las infancias
   </button>
 
-  <button class="tab-btn" data-tab="referencias">
+  <button class="tab-btn" role="tab" aria-selected="false" data-tab="referencias">
     <svg class="icono-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v17H5.5A1.5 1.5 0 0 1 4 18.5v-14z"
-            fill="currentColor" opacity="0.75"/>
-      <path d="M13 3h5.5A1.5 1.5 0 0 1 20 4.5v14a1.5 1.5 0 0 1-1.5 1.5H13V3z"
-            fill="currentColor" opacity="0.9"/>
+      <path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v17H5.5A1.5 1.5 0 0 1 4 18.5v-14z" fill="currentColor" opacity="0.75"/>
+      <path d="M13 3h5.5A1.5 1.5 0 0 1 20 4.5v14a1.5 1.5 0 0 1-1.5 1.5H13V3z" fill="currentColor" opacity="0.9"/>
       <line x1="12" y1="3" x2="12" y2="20" stroke="#fff" stroke-width="1.4" opacity="0.9"/>
-      <path d="M6 7h3M6 10h3M15 7h3M15 10h3" stroke="#fff" stroke-width="1.1"
-            stroke-linecap="round" opacity="0.7"/>
+      <path d="M6 7h3M6 10h3M15 7h3M15 10h3" stroke="#fff" stroke-width="1.1" stroke-linecap="round" opacity="0.7"/>
     </svg>
     Referencias
   </button>
 </nav>
   
 <!-- ============ PESTAÑA INICIO ============ -->
-<div id="inicio" class="tab-content active">
+<div id="inicio" class="tab-content active" role="tabpanel">
   <section>
     <div class="card">
       <h2>Bienvenida</h2>
@@ -105,7 +95,7 @@
 </div>
 
 <!-- ============ PESTAÑA INTEGRANTES ============ -->
-<div id="integrantes" class="tab-content">
+<div id="integrantes" class="tab-content" role="tabpanel">
   <section>
     <div class="card">
       <h2>Integrantes del grupo</h2>
@@ -160,7 +150,7 @@
 </div>
 
 <!-- ============ PESTAÑA CONSTRUCCIÓN HISTÓRICA ============ -->
-<div id="construccion" class="tab-content">
+<div id="construccion" class="tab-content" role="tabpanel">
   <section>
 
     <div class="card">
@@ -192,8 +182,8 @@
               <p>• <strong>Lloyd deMause:</strong> analizó históricamente las formas de crianza y las relaciones entre adultos y niños, mostrando cambios en las prácticas hacia la infancia.</p>
               <p><strong>⚖️ Transformaciones e hitos:</strong> Las formas de crianza y educación estaban ligadas a la familia, la autoridad y la posición social. El abandono y el infanticidio aparecen en los análisis históricos como prácticas que evidencian la vulnerabilidad de los niños. Las reflexiones filosóficas sobre la educación también fueron construyendo distintas ideas sobre su formación.</p>
             </div>
-            <div style="background:linear-gradient(135deg,#ffd166,#ff8fab); color:#fff; padding:12px 16px; border-radius:14px; margin-top:14px; font-weight:600; font-size:0.92rem; text-align:left;">
-              <strong style="display:block; font-size:0.75rem; letter-spacing:1.5px; opacity:0.9; margin-bottom:4px;">💡 IDEA CLAVE</strong>
+            <div class="idea-clave-mini">
+              <strong>💡 IDEA CLAVE</strong>
               La infancia estaba fuertemente relacionada con la familia, la posición social y las expectativas que la comunidad tenía sobre la formación de sus integrantes.
             </div>
           </div>
@@ -217,8 +207,8 @@
               <p>• <strong>Lloyd deMause:</strong> analizó las relaciones de crianza y los cambios históricos en el trato dado a niños y niñas.</p>
               <p><strong>⚖️ Transformaciones e hitos:</strong> La Iglesia y las instituciones religiosas tuvieron un papel central en la enseñanza y transmisión de valores. Los niños aprendían en la familia, en espacios religiosos o mediante el aprendizaje de oficios. Las diferencias sociales determinaban las oportunidades de educación y las responsabilidades asumidas desde edades tempranas.</p>
             </div>
-            <div style="background:linear-gradient(135deg,#ffd166,#ff8fab); color:#fff; padding:12px 16px; border-radius:14px; margin-top:14px; font-weight:600; font-size:0.92rem; text-align:left;">
-              <strong style="display:block; font-size:0.75rem; letter-spacing:1.5px; opacity:0.9; margin-bottom:4px;">💡 IDEA CLAVE</strong>
+            <div class="idea-clave-mini">
+              <strong>💡 IDEA CLAVE</strong>
               La infancia estaba condicionada por el orden social, la familia, la religión y las labores que cada niño o niña debía asumir según su contexto.
             </div>
           </div>
@@ -241,8 +231,8 @@
               <p>• <strong>Jean-Jacques Rousseau:</strong> en Emilio o de la educación defendió que el niño tiene un ritmo propio de desarrollo y que la educación debe respetar su naturaleza y sus necesidades.</p>
               <p><strong>⚖️ Transformaciones e hitos:</strong> La expansión de la educación y de la cultura escrita, junto con las nuevas reflexiones pedagógicas, transformaron progresivamente la manera de comprender la niñez. La infancia comenzó a considerarse una etapa que necesitaba instrucción, cuidado y métodos educativos adecuados a sus características.</p>
             </div>
-            <div style="background:linear-gradient(135deg,#ffd166,#ff8fab); color:#fff; padding:12px 16px; border-radius:14px; margin-top:14px; font-weight:600; font-size:0.92rem; text-align:left;">
-              <strong style="display:block; font-size:0.75rem; letter-spacing:1.5px; opacity:0.9; margin-bottom:4px;">💡 IDEA CLAVE</strong>
+            <div class="idea-clave-mini">
+              <strong>💡 IDEA CLAVE</strong>
               Se fortaleció la idea de que los niños tienen características y necesidades propias y que la educación debe tenerlas en cuenta.
             </div>
           </div>
@@ -267,8 +257,8 @@
               <p>• <strong>Declaración de Ginebra (1924):</strong> constituyó un antecedente internacional importante en la protección de la infancia y en el reconocimiento de deberes hacia los niños.</p>
               <p>• <strong>Convención sobre los Derechos del Niño (1989):</strong> consolidó internacionalmente el reconocimiento de niños y niñas como sujetos de derechos, incluyendo protección, educación, participación y bienestar.</p>
             </div>
-            <div style="background:linear-gradient(135deg,#ffd166,#ff8fab); color:#fff; padding:12px 16px; border-radius:14px; margin-top:14px; font-weight:600; font-size:0.92rem; text-align:left;">
-              <strong style="display:block; font-size:0.75rem; letter-spacing:1.5px; opacity:0.9; margin-bottom:4px;">💡 IDEA CLAVE</strong>
+            <div class="idea-clave-mini">
+              <strong>💡 IDEA CLAVE</strong>
               La infancia se comprende actualmente como una construcción social e histórica, diversa y atravesada por derechos, participación, protección, educación y dignidad.
             </div>
           </div>
@@ -302,7 +292,7 @@
 </div>
   
 <!-- ============ PESTAÑA INFANCIAS EN PERSPECTIVA ============ -->
-<div id="perspectiva" class="tab-content">
+<div id="perspectiva" class="tab-content" role="tabpanel">
   <section>
     <div class="card">
       <h2>Infancias en perspectiva</h2>
@@ -399,85 +389,93 @@
       <p>A continuación se presentan las fichas elaboradas por el grupo:</p>
       
       <div class="grid-autores">
-        <!-- Ficha 1 -->
+        <!-- 1 -->
         <div class="matriz-card">
           <h4>Miguel Ángel Gómez-Mendoza y María Victoria Alzate-Piedrahita</h4>
           <span class="autor-ficha">Ficha elaborada por: Rosa Elena Fonseca Puello</span>
           <div class="contenedor-imagen">
-            <!-- IMPORTANTE: Reemplaza "ficha1.jpg" por el nombre real de tu archivo -->
-            <img src="ficha1.jpg" alt="Ficha Gómez-Mendoza">
+            <img src="ficha1.jpg" alt="Ficha 1 Gómez-Mendoza">
           </div>
         </div>
         
-        <!-- Ficha 2 -->
+        <!-- 2 -->
+        <div class="matriz-card">
+          <h4>Miguel Ángel Gómez-Mendoza y María Victoria Alzate-Piedrahita</h4>
+          <span class="autor-ficha">Ficha elaborada por: Rosa Elena Fonseca Puello</span>
+          <div class="contenedor-imagen">
+            <img src="ficha2.jpg" alt="Ficha 2 Gómez-Mendoza">
+          </div>
+        </div>
+
+        <!-- 3 -->
         <div class="matriz-card">
           <h4>Philippe Ariès (1960)</h4>
           <span class="autor-ficha">Ficha elaborada por: Leidis Rojano Vega</span>
           <div class="contenedor-imagen">
-            <img src="ficha2.jpg" alt="Ficha Philippe Ariès">
+            <img src="ficha3.jpg" alt="Ficha Philippe Ariès">
           </div>
         </div>
 
-        <!-- Ficha 3 -->
+        <!-- 4 -->
         <div class="matriz-card">
           <h4>I. Enesco (2010)</h4>
           <span class="autor-ficha">Ficha elaborada por: Leidis Rojano Vega</span>
           <div class="contenedor-imagen">
-            <img src="ficha3.jpg" alt="Ficha I. Enesco">
+            <img src="ficha4.jpg" alt="Ficha I. Enesco">
           </div>
         </div>
 
-        <!-- Ficha 4 -->
+        <!-- 5 -->
         <div class="matriz-card">
           <h4>Lev Vygotsky</h4>
           <span class="autor-ficha">Ficha elaborada por: Zuad Massiel Ortega Beltran</span>
           <div class="contenedor-imagen">
-            <img src="ficha4.jpg" alt="Ficha Lev Vygotsky">
+            <img src="ficha5.jpg" alt="Ficha Lev Vygotsky">
           </div>
         </div>
 
-        <!-- Ficha 5 -->
+        <!-- 6 -->
         <div class="matriz-card">
           <h4>Yolanda Rodríguez Bernal</h4>
           <span class="autor-ficha">Ficha elaborada por: Zuad Massiel Ortega Beltran</span>
           <div class="contenedor-imagen">
-            <img src="ficha5.jpg" alt="Ficha Yolanda Rodríguez">
+            <img src="ficha6.jpg" alt="Ficha Yolanda Rodríguez">
           </div>
         </div>
 
-        <!-- Ficha 6 -->
+        <!-- 7 -->
         <div class="matriz-card">
           <h4>Sandra Carli</h4>
           <span class="autor-ficha">Ficha elaborada por: Rosa Isela Beltrán Ruiz</span>
           <div class="contenedor-imagen">
-            <img src="ficha6.jpg" alt="Ficha Sandra Carli">
+            <img src="ficha7.jpg" alt="Ficha Sandra Carli">
           </div>
         </div>
 
-        <!-- Ficha 7 -->
+        <!-- 8 -->
         <div class="matriz-card">
           <h4>Jorge Camilo Amador Baquiro</h4>
           <span class="autor-ficha">Ficha elaborada por: Rosa Isela Beltrán Ruiz</span>
           <div class="contenedor-imagen">
-            <img src="ficha7.jpg" alt="Ficha Jorge Amador">
+            <img src="ficha8.jpg" alt="Ficha Jorge Amador">
           </div>
         </div>
 
-        <!-- Ficha 8 -->
+        <!-- 9 -->
         <div class="matriz-card">
           <h4>María Tecla Artemisia Montessori</h4>
           <span class="autor-ficha">Ficha elaborada por: Maria Fernanda Porto Almendrales</span>
           <div class="contenedor-imagen">
-            <img src="ficha8.jpg" alt="Ficha Montessori">
+            <img src="ficha9.jpg" alt="Ficha Montessori">
           </div>
         </div>
 
-        <!-- Ficha 9 -->
+        <!-- 10 -->
         <div class="matriz-card">
           <h4>Howard Earl Gardner</h4>
           <span class="autor-ficha">Ficha elaborada por: Maria Fernanda Porto Almendrales</span>
           <div class="contenedor-imagen">
-            <img src="ficha9.jpg" alt="Ficha Gardner">
+            <img src="ficha10.jpg" alt="Ficha Gardner">
           </div>
         </div>
       </div>
@@ -515,7 +513,7 @@
 </div>
 
 <!-- ============ PESTAÑA REALIDADES Y DESAFÍOS (VACÍA) ============ -->
-<div id="realidades" class="tab-content">
+<div id="realidades" class="tab-content" role="tabpanel">
   <section>
     <div class="card">
       <div class="proximamente">
@@ -530,7 +528,7 @@
 </div>
 
 <!-- ============ PESTAÑA VOCES PARA LA TRANSFORMACIÓN (VACÍA) ============ -->
-<div id="voces" class="tab-content">
+<div id="voces" class="tab-content" role="tabpanel">
   <section>
     <div class="card">
       <div class="proximamente">
@@ -545,7 +543,7 @@
 </div>
   
 <!-- ============ PESTAÑA REFERENCIAS ============ -->
-<div id="referencias" class="tab-content">
+<div id="referencias" class="tab-content" role="tabpanel">
   <section>
     <div class="card">
       <h2>Referencias bibliográficas</h2>
