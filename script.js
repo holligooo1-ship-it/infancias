@@ -47,3 +47,22 @@ function toggleDetalle(boton) {
     boton.textContent = estaAbierto ? 'Ver menos' : 'Ver más';
   }
 }
+// ===== FUNCIÓN PARA ABRIR Y CERRAR IMÁGENES =====
+function abrirModal(rutaImagen) {
+  const modal = document.getElementById("miModal");
+  const imgModal = document.getElementById("imgModal");
+  modal.style.display = "block";
+  imgModal.src = rutaImagen;
+}
+
+function cerrarModal() {
+  document.getElementById("miModal").style.display = "none";
+}
+
+// Cerrar la ventana si se hace clic afuera de la imagen
+window.addEventListener('click', function(event) {
+  const modal = document.getElementById("miModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
