@@ -642,3 +642,142 @@ footer {
 }
 footer::before { content: '🌈 '; }
 footer::after  { content: ' 🌈'; }
+/* ===== ESTILOS PARA REALIDADES Y DESAFÍOS ===== */
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+.stat-box {
+  background: linear-gradient(135deg, #fff, #fdf1f6);
+  padding: 15px 30px;
+  border-radius: 20px;
+  border: 3px solid var(--rosa);
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(255, 143, 171, 0.15);
+  min-width: 120px;
+}
+.stat-box .num {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--lila);
+  font-family: 'Baloo 2', cursive;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.stat-box .txt {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+.equipo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.equipo-item {
+  background: #fff;
+  padding: 18px;
+  border-radius: 16px;
+  border: 2px dashed var(--menta);
+}
+.equipo-item strong {
+  color: var(--lila);
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 4px;
+}
+.equipo-item span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  margin-bottom: 8px;
+}
+.equipo-item .rol-tag {
+  display: inline-block;
+  background: var(--azul-cielo);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: 'Baloo 2', cursive;
+}
+
+.ruta-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(184, 146, 255, 0.15);
+  border-left: 6px solid var(--lila);
+  transition: transform 0.2s;
+}
+.ruta-card:hover { transform: translateY(-2px); }
+.ruta-card .ficha-tag {
+  font-size: 0.8rem;
+  background: var(--menta);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-family: 'Baloo 2', cursive;
+}
+.ruta-card h4 { color: var(--rosa); font-size: 1.3rem; margin-bottom: 4px; margin-top: 0; }
+.ruta-card .subtitulo { font-size: 0.95rem; color: var(--texto-suave); margin-bottom: 15px; font-style: italic; display: block; }
+.ruta-card .hallazgo {
+  background: #f3f0ff;
+  padding: 15px;
+  border-radius: 12px;
+  border-left: 4px solid var(--lila);
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+.ruta-card .hallazgo strong { color: var(--lila); }
+
+.galeria-fichas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.galeria-item {
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  text-align: center;
+  border: 3px solid var(--amarillo);
+  box-shadow: 0 4px 10px rgba(255, 209, 102, 0.2);
+}
+.galeria-item h5 {
+  color: var(--texto);
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  font-family: 'Baloo 2', cursive;
+}
+.galeria-item span {
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+  display: block;
+  margin-bottom: 10px;
+}
+.galeria-item img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.galeria-item img:hover { transform: scale(1.03); }
+
+@media (max-width: 720px) {
+  .equipo-grid { grid-template-columns: 1fr; }
+  .stats-container { flex-direction: column; }
+}
