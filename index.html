@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilos.css?v=3">
+<link rel="stylesheet" href="estilos.css?v=4">
 </head>
 <body>
 
@@ -394,7 +394,7 @@
           <h4>Miguel Ángel Gómez-Mendoza y María Victoria Alzate-Piedrahita</h4>
           <span class="autor-ficha">Ficha elaborada por: Rosa Elena Fonseca Puello</span>
           <div class="contenedor-imagen">
-            <img src="ficha1.jpg" alt="Ficha 1 Gómez-Mendoza">
+            <img src="ficha1.jpg" alt="Ficha 1 Gómez-Mendoza" onclick="abrirModal(this.src)">
           </div>
         </div>
         
@@ -403,7 +403,7 @@
           <h4>Miguel Ángel Gómez-Mendoza y María Victoria Alzate-Piedrahita</h4>
           <span class="autor-ficha">Ficha elaborada por: Rosa Elena Fonseca Puello</span>
           <div class="contenedor-imagen">
-            <img src="ficha2.jpg" alt="Ficha 2 Gómez-Mendoza">
+            <img src="ficha2.jpg" alt="Ficha 2 Gómez-Mendoza" onclick="abrirModal(this.src)">
           </div>
         </div>
 
@@ -412,7 +412,7 @@
           <h4>Philippe Ariès (1960)</h4>
           <span class="autor-ficha">Ficha elaborada por: Leidis Rojano Vega</span>
           <div class="contenedor-imagen">
-            <img src="ficha3.jpg" alt="Ficha Philippe Ariès">
+            <img src="ficha3.jpg" alt="Ficha Philippe Ariès" onclick="abrirModal(this.src)">
           </div>
         </div>
 
@@ -421,7 +421,7 @@
           <h4>I. Enesco (2010)</h4>
           <span class="autor-ficha">Ficha elaborada por: Leidis Rojano Vega</span>
           <div class="contenedor-imagen">
-            <img src="ficha4.jpg" alt="Ficha I. Enesco">
+            <img src="ficha4.jpg" alt="Ficha I. Enesco" onclick="abrirModal(this.src)">
           </div>
         </div>
 
@@ -430,7 +430,7 @@
           <h4>Lev Vygotsky</h4>
           <span class="autor-ficha">Ficha elaborada por: Zuad Massiel Ortega Beltran</span>
           <div class="contenedor-imagen">
-            <img src="ficha5.jpg" alt="Ficha Lev Vygotsky">
+            <img src="ficha5.jpg" alt="Ficha Lev Vygotsky" onclick="abrirModal(this.src)">
           </div>
         </div>
 
@@ -439,7 +439,7 @@
           <h4>Yolanda Rodríguez Bernal</h4>
           <span class="autor-ficha">Ficha elaborada por: Zuad Massiel Ortega Beltran</span>
           <div class="contenedor-imagen">
-            <img src="ficha6.jpg" alt="Ficha Yolanda Rodríguez">
+            <img src="ficha6.jpg" alt="Ficha Yolanda Rodríguez" onclick="abrirModal(this.src)">
           </div>
         </div>
 
@@ -448,7 +448,7 @@
           <h4>Sandra Carli</h4>
           <span class="autor-ficha">Ficha elaborada por: Rosa Isela Beltrán Ruiz</span>
           <div class="contenedor-imagen">
-            <img src="ficha7.jpg" alt="Ficha Sandra Carli">
+            <img src="ficha7.jpg" alt="Ficha Sandra Carli" onclick="abrirModal(this.src)">
           </div>
         </div>
 
@@ -457,7 +457,7 @@
           <h4>Jorge Camilo Amador Baquiro</h4>
           <span class="autor-ficha">Ficha elaborada por: Rosa Isela Beltrán Ruiz</span>
           <div class="contenedor-imagen">
-            <img src="ficha8.jpg" alt="Ficha Jorge Amador">
+            <img src="ficha8.jpg" alt="Ficha Jorge Amador" onclick="abrirModal(this.src)">
           </div>
         </div>
 
@@ -466,7 +466,7 @@
           <h4>María Tecla Artemisia Montessori</h4>
           <span class="autor-ficha">Ficha elaborada por: Maria Fernanda Porto Almendrales</span>
           <div class="contenedor-imagen">
-            <img src="ficha9.jpg" alt="Ficha Montessori">
+            <img src="ficha9.jpg" alt="Ficha Montessori" onclick="abrirModal(this.src)">
           </div>
         </div>
 
@@ -475,7 +475,7 @@
           <h4>Howard Earl Gardner</h4>
           <span class="autor-ficha">Ficha elaborada por: Maria Fernanda Porto Almendrales</span>
           <div class="contenedor-imagen">
-            <img src="ficha10.jpg" alt="Ficha Gardner">
+            <img src="ficha10.jpg" alt="Ficha Gardner" onclick="abrirModal(this.src)">
           </div>
         </div>
       </div>
@@ -656,6 +656,42 @@
       </div>
 
       <br>
+      <!-- MATERIAL DE APOYO MOVIDO AQUÍ, ANTES DE LA META -->
+      <h3>Material de apoyo del equipo</h3>
+      <div class="intro-timeline" style="border-color: var(--azul-cielo); margin-bottom: 15px; padding: 15px;">
+        <strong>Galería de las cinco fichas de análisis</strong><br>
+        En esta pestaña puedes consultar las imágenes originales que elaboró cada integrante. Haz clic en una imagen para ampliarla y leerla mejor.
+      </div>
+      
+      <div class="galeria-fichas">
+        <div class="galeria-item">
+          <h5>🌸 Ficha 1</h5>
+          <span>Condiciones de vida<br>Leidis Yaneth</span>
+          <img src="realidad1.jpg" alt="Ficha 1" onclick="abrirModal(this.src)">
+        </div>
+        <div class="galeria-item">
+          <h5>🧡 Ficha 2</h5>
+          <span>Trabajo infantil<br>Rosa Elena</span>
+          <img src="realidad2.jpg" alt="Ficha 2" onclick="abrirModal(this.src)">
+        </div>
+        <div class="galeria-item">
+          <h5>💙 Ficha 3</h5>
+          <span>Derecho a la educación<br>Rosa Isela</span>
+          <img src="realidad3.jpg" alt="Ficha 3" onclick="abrirModal(this.src)">
+        </div>
+        <div class="galeria-item">
+          <h5>💛 Ficha 4</h5>
+          <span>Derecho a la protección<br>María Fernanda</span>
+          <img src="realidad4.jpg" alt="Ficha 4" onclick="abrirModal(this.src)">
+        </div>
+        <div class="galeria-item">
+          <h5>💗 Ficha 5</h5>
+          <span>Desarrollo integral<br>Zuad Massiel</span>
+          <img src="realidad5.jpg" alt="Ficha 5" onclick="abrirModal(this.src)">
+        </div>
+      </div>
+
+      <br>
       <h3>4. Nuestra meta</h3>
       <div class="bloque" style="border-left-color: var(--amarillo);">
         <p>Contribuir a la garantía efectiva de los derechos de los niños y las niñas mediante acciones de prevención, promoción, atención y acompañamiento que fortalezcan sus condiciones de vida, eviten el trabajo infantil, favorezcan el acceso y la permanencia educativa, prevengan las violencias y promuevan el desarrollo integral. Buscamos impulsar entornos familiares, escolares y comunitarios seguros, saludables, inclusivos y respetuosos de la infancia.</p>
@@ -665,41 +701,6 @@
       <div class="bloque" style="border-left-color: var(--lila);">
         <p>Como equipo y futuros licenciados en Educación Infantil, reconocemos que los niños y las niñas son sujetos de derechos y merecen crecer en condiciones de dignidad, respeto, protección y bienestar. Las realidades analizadas nos muestran que problemáticas como la desnutrición, el trabajo infantil, las barreras educativas y las violencias no deben entenderse de manera aislada, porque afectan conjuntamente las oportunidades y el desarrollo de la infancia.</p>
         <p>Asumimos el compromiso de promover prácticas pedagógicas inclusivas, escuchar las voces de los niños y las niñas, identificar posibles situaciones de vulneración y orientar a las familias hacia las rutas de atención correspondientes. También reconocemos la importancia del trabajo articulado entre escuela, familia, comunidad e instituciones del Estado. Desde nuestra formación, queremos aportar a la construcción de entornos protectores donde cada niño y niña pueda aprender, jugar, participar, desarrollar sus capacidades y vivir una infancia plena.</p>
-      </div>
-
-      <br>
-      <h3>Material de apoyo del equipo</h3>
-      <div class="intro-timeline" style="border-color: var(--azul-cielo); margin-bottom: 15px; padding: 15px;">
-        <strong>Galería de las cinco fichas de análisis</strong><br>
-        En esta pestaña puedes consultar las imágenes originales que elaboró cada integrante. 
-      </div>
-      
-      <div class="galeria-fichas">
-        <div class="galeria-item">
-          <h5>🌸 Ficha 1</h5>
-          <span>Condiciones de vida<br>Leidis Yaneth</span>
-          <img src="realidad1.jpg" alt="Ficha 1">
-        </div>
-        <div class="galeria-item">
-          <h5>🧡 Ficha 2</h5>
-          <span>Trabajo infantil<br>Rosa Elena</span>
-          <img src="realidad2.jpg" alt="Ficha 2">
-        </div>
-        <div class="galeria-item">
-          <h5>💙 Ficha 3</h5>
-          <span>Derecho a la educación<br>Rosa Isela</span>
-          <img src="realidad3.jpg" alt="Ficha 3">
-        </div>
-        <div class="galeria-item">
-          <h5>💛 Ficha 4</h5>
-          <span>Derecho a la protección<br>María Fernanda</span>
-          <img src="realidad4.jpg" alt="Ficha 4">
-        </div>
-        <div class="galeria-item">
-          <h5>💗 Ficha 5</h5>
-          <span>Desarrollo integral<br>Zuad Massiel</span>
-          <img src="realidad5.jpg" alt="Ficha 5">
-        </div>
       </div>
 
     </div>
@@ -782,6 +783,12 @@
 <footer>
   Página elaborada con fines académicos y educativos · Construcción histórica de las infancias
 </footer>
+
+<!-- ===== VENTANA MODAL PARA IMÁGENES (LIGHTBOX) ===== -->
+<div id="miModal" class="modal">
+  <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+  <img class="modal-contenido" id="imgModal">
+</div>
 
 <script src="script.js"></script>
 
